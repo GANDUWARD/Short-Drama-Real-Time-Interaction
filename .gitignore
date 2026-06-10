@@ -10,10 +10,13 @@ Thumbs.db
 .vscode/
 
 # Project specific
-Backend/
 Core/
 docs/
 Structure.md
+
+# Go (Backend/)
+.gocache/
+*.exe
 
 # Android (Client/)
 *.iml
