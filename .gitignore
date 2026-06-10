@@ -1,0 +1,43 @@
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Project specific
+Backend/
+Core/
+docs/
+Structure.md
+
+# Android (Client/)
+*.iml
+.gradle/
+/local.properties
+/.idea
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+/app/build
+/app/release
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+bin/
+gen/
+out/
+.navigation/
+*.log
+*.hprof
+*.keystore
+*.jks
