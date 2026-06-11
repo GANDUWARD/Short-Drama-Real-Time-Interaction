@@ -56,7 +56,7 @@
 # 项目架构
 
 ```text
-Android Client
+Android Client 
         │
  HTTP / WebSocket
         │
@@ -64,4 +64,4 @@ Golang Backend
         │
 Redis / MySQL
         │
-Python AI Core
+Python AI highlight-engine
