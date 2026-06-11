@@ -65,3 +65,47 @@ Golang Backend
 Redis / MySQL
         │
 Python AI highlight-engine
+
+```
+
+# 项目目录结构总览
+
+```
+Short-Drama-Real-Time-Interaction-main/
+│
+├── README.md, Structure.md           # 项目文档
+│
+├── Backend/                          # Go 后端服务
+│   ├── main.go                       # 应用入口
+│   ├── internal/
+│   │   ├── config/                   # 配置加载（端口、MySQL DSN、MinIO）
+│   │   ├── database/                 # GORM 连接 + 自动迁移
+│   │   ├── model/                    # 数据模型（Drama, Episode, HighlightEvent）
+│   │   ├── server/                   # Gin 路由 + CORS
+│   │   ├── handler/                  # CRUD 处理器（drama, episode, highlight, upload）
+│   │   └── storage/                  # MinIO 客户端
+│   └── deploy/                       # 一键部署脚本（one_step.sh）
+│
+├── Client/                           # Android 客户端（Kotlin + Jetpack Compose）
+│   ├── app/src/main/java/com/shortdrama/app/
+│   │   ├── MainActivity.kt           # 单 Activity 入口
+│   │   ├── navigation/               # 路由定义 + NavGraph（3 屏）
+│   │   ├── data/model/               # API 响应、Drama、Episode、Highlight 数据类
+│   │   ├── data/network/             # Retrofit API 客户端
+│   │   ├── data/repository/          # 数据仓库
+│   │   └── ui/                       # 3 屏：drama（列表）/ detail（详情）/ player（播放器+互动）
+│   └── build.gradle.kts              # Compose + ExoPlayer + Retrofit + Coil
+│
+├── highlight-engine/                 # 基于 Highlight-7B 的高光检测模型项目（独立，未集成）
+│   ├── highlight/
+│   │   ├── model/                    # 多模态模型（Mistral-7B + CLIP + 4 输出头）
+│   │   ├── prompts/                  # 高光检测/密集描述等任务 Prompt 模板
+│   │   ├── eval/ + metrics/          # DVC/TVG/VHD 评测 + 指标
+│   │   └── train_mt.py               # 训练入口
+│   └── scripts/
+│       ├── train/                    # 预训练/SFT/微调脚本
+│       └── inference/                # 推理（含两阶段 + Qwen2.5-VL 流水线）
+│
+└── docs/
+    └── api.md                        # 后端 REST API 文档
+```
